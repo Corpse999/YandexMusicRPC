@@ -1,3 +1,4 @@
 flask
 pywin32
+requests
 websocket-client
