@@ -1,0 +1,259 @@
+/* Вертикальная карточка */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #0a0a0a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    perspective: 1200px;
+}
+
+.embed {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(145deg, #2a0033 0%, #0d0011 100%);
+    padding: 25px;
+    border-radius: 20px;
+    width: 250px;
+    box-shadow: 0 0 30px rgba(138, 43, 226, 0.7), 0 12px 30px rgba(0,0,0,0.8);
+    transform-style: preserve-3d;
+    transition: transform 2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    border: 1px solid rgba(138, 43, 226, 0.6);
+}
+
+.thumb-wrapper {
+    position: relative;
+    width: 180px;
+    height: 180px;
+    margin-bottom: 20px;
+}
+
+#thumbnail {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    object-fit: cover;
+    filter: drop-shadow(0 0 15px #cc00ff);
+}
+
+#pauseDark, #pausedOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+    box-shadow: 0 0 15px #e600ff inset;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.title {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #e600ff;
+    text-shadow: 0 0 5px #ff00ff, 0 0 10px #cc00ff;
+}
+
+.authors {
+    font-size: 15px;
+    color: #b366ff;
+    margin-bottom: 8px;
+    text-shadow: 0 0 3px #d19aff;
+}
+
+.time {
+    font-size: 13px;
+    color: #d580ff;
+    margin-bottom: 12px;
+}
+
+.progress-bar {
+    width: 200px;
+    height: 8px;
+    background: rgba(138,43,226,0.2);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+
+.progress-bar-inner {
+    height: 100%;
+    width: 0px;
+    background: #e600ff;
+    border-radius: 4px;
+    transition: width 0.5s linear;
+    box-shadow: 0 0 8px #ff00ff;
+}
+
+.github-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 12px;
+    color: #e600ff;
+    font-weight: bold;
+    font-size: 10px;
+    text-shadow: 0 0 5px #ff00ff, 0 0 10px #d580ff;
+}
+
+.github-info img {
+    margin-right: 5px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    filter: drop-shadow(0 0 5px #ff00ff);
+}
+
+.github-info span {
+    color: #ff00ff;
+}
+/* ----------------------------------------------- */
+
+
+/* Горизонтальная карточка ----------------------------------------------- */
+/* body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #0a0a0a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    perspective: 1200px;
+}
+
+.embed {
+    display: flex;
+    background: linear-gradient(145deg, #2a0033 0%, #0d0011 100%);
+    padding: 20px;
+    border-radius: 20px;
+    width: 500px;
+    box-shadow: 0 0 30px rgba(138, 43, 226, 0.7), 0 12px 30px rgba(0,0,0,0.8);
+    transform-style: preserve-3d;
+    transition: transform 2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    border: 1px solid rgba(138, 43, 226, 0.6);
+}
+
+.embed img {
+    width: 130px;
+    height: 130px;
+    border-radius: 20px;
+    margin-right: 25px;
+    object-fit: cover;
+    box-shadow: 0 6px 20px rgba(138,43,226,0.7);
+    transition: transform 0.4s ease, filter 0.4s ease, box-shadow 0.4s ease;
+    filter: drop-shadow(0 0 10px #8a2be2);
+}
+
+.info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.title {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #e600ff;
+    text-shadow: 0 0 5px #ff00ff, 0 0 10px #cc00ff;
+}
+
+.authors {
+    font-size: 15px;
+    color: #b366ff;
+    margin-bottom: 12px;
+    text-shadow: 0 0 3px #d19aff;
+}
+
+.time {
+    font-size: 13px;
+    color: #d580ff;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 7px;
+    background: rgba(138,43,226,0.2);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.progress-bar-inner {
+    height: 100%;
+    width: 0%;
+    background: #e600ff;
+    border-radius: 4px;
+    transition: width 0.5s linear;
+    box-shadow: 0 0 8px #ff00ff;
+}
+
+.thumb-wrapper {
+    position: relative;
+    width: 130px;
+    height: 130px;
+    margin-right: 25px;
+}
+
+#thumbnail {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    object-fit: cover;
+    filter: drop-shadow(0 0 15px #cc00ff);
+}
+
+#pauseDark, #pausedOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+    box-shadow: 0 0 15px #e600ff inset;
+}
+
+.github-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 12px;
+    color: #e600ff;
+    font-weight: bold;
+    font-size: 10px;
+    text-shadow: 0 0 5px #ff00ff, 0 0 10px #d580ff;
+}
+
+.github-info img {
+    margin-right: 5px;
+    width: 15px;
+    height: 15px;
+    filter: drop-shadow(0 0 5px #ff00ff);
+}
+
+.github-info span {
+    color: #ff00ff;
+} */
+
+/* ----------------------------------------------- */
