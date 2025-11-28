@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Yandex Music Embed</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+</head>
+
+<body>
+<div class="embed" id="embed">
+    <div class="thumb-wrapper">
+        <img id="thumbnail" src="https://corpse.pw/pics/77fb2583d234436658662257b545d76c.jpg">
+        <img id="pausedOverlay" src="/static/paused.png" alt="">
+    </div>
+    <div class="info">
+        <div class="title" id="title">Загрузка...</div>
+        <div class="authors" id="authors"></div>
+        <div class="time" id="time">0:00 / 0:00</div>
+        <div class="progress-bar">
+            <div class="progress-bar-inner" id="progress"></div>
+        </div>
+        <!--Необязательная плашка с моим гитхабом (можно убрать). Буду признателен, если оставите!-->
+        <div class="github-info">
+            <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub">
+            <span>GitHub: Corpse999</span>
+        </div>
+        <!---->
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='index.js') }}"></script>
+</body>
+</html>
