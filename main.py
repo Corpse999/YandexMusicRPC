@@ -156,7 +156,7 @@ class Console:
         while True:
             print("\nНажмите клавишу выбора: ", end="", flush=True)
             key = msvcrt.getch()
-            print(key.decode(), flush=True)
+            print(key.decode('cp1251', errors='ignore'), flush=True)
             
             if key == b'1':
                 print("\nЗапускаю локальную страницу для OBS...")
