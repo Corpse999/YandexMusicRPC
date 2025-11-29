@@ -40,10 +40,10 @@ Yandex Music RPC - приложение, позволяющее отобража
 ## Превью
 
 - ### OBS Embed
-![Превью OBS Embed](/images/obs_preview.png)
+![Превью OBS Embed](images/obs_preview.png)
 
 - ### ~Discord Rich Presence~
-![~Превью Discord Rich Presence~](/images/discord_preview.png)
+![~Превью Discord Rich Presence~](images/discord_preview.png)
 
 ---
 
