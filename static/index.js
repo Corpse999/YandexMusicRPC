@@ -1,4 +1,5 @@
 let totalSeconds = 0;
+let last_thumbnail = null;
 let currentTitle = null;
 
 // Функция для обновления HTML-странички
@@ -21,7 +22,12 @@ async function fetchTrack() {
         }
 
         document.getElementById("time").textContent = `${data.time.current || "0:00"} / ${data.time.total || "0:00"}`;
-        document.getElementById("thumbnail").src = data.thumbnail || "https://corpse.pw/pics/77fb2583d234436658662257b545d76c.jpg";
+        
+        // Оптимизация! Если текущая обложка == старой, то не трогаем
+        if (last_thumbnail != data.thumbnail) {
+            document.getElementById("thumbnail").src = data.thumbnail || "https://corpse.pw/pics/77fb2583d234436658662257b545d76c.jpg";
+            last_thumbnail = data.thumbnail
+        }
 
         const status = data.status || "playing";
         const overlay = document.getElementById("pausedOverlay");

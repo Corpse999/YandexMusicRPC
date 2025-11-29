@@ -122,7 +122,8 @@ class YandexMusicWS:
                 if value:
                     if value['thumbnail']:
                         value['thumbnail'] = value['thumbnail'].replace("100x100", "1000x1000")
-                    self.parent.current_track.update(value)
+                    updated_values = {key:value.get(key) for key in value if value.get(key) != self.parent.current_track.get(key)} # Обновляем в current_track только то, что изменилось
+                    self.parent.current_track.update(updated_values)
         except:
             pass
 
