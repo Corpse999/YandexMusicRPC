@@ -1,4 +1,6 @@
 flask
 pywin32
+keyboard
 requests
+packaging
 websocket-client
