@@ -1,5 +1,5 @@
 {
-    "version": "v1.0.0",
+    "version": "v1.0.1",
     "yandex_music_port": 777,
     "flask_port": 999,
     "target_app": "music-application://desktop/",
