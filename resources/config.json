@@ -1,10 +1,10 @@
 {
-    "version": "v1.0.1",
+    "version": "v1.0.0",
     "yandex_music_port": 777,
     "flask_port": 999,
     "target_app": "music-application://desktop/",
     "default_yandex_music_path": "C://Users//{username}//AppData//Roaming//Microsoft//Windows//Start Menu//Programs//Яндекс Музыка.lnk",
     "user_yandex_music_path": null,
     "yandex_music_arguments": "--remote-debugging-port={port} --remote-allow-origins=*",
-    "repository_url": "https://api.github.com/repos/Corpse999/tree/test/releases/latest"
+    "repository_url": "https://api.github.com/repos/Corpse999/YandexMusicRPC/releases/latest"
 }
