@@ -3,4 +3,5 @@ pywin32
 keyboard
 requests
 packaging
+discord-rpc
 websocket-client

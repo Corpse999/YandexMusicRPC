@@ -4,6 +4,7 @@ import msvcrt
 import getpass
 import subprocess
 import win32com.client
+from modules.discord_rpc import DiscordRPC
 from modules.flask import YandexMusicFlaskApp
 from modules.websocket import GetWebSocketURL
 from modules.config import LoadConfig, ChangeConfig
@@ -164,7 +165,9 @@ class Console:
                 YandexMusicFlaskApp(flask_port=self.cfg.flask_port).run_loop(websocket_url)
                 break
             elif key == b'2':
-                print("\nRPC Яндекс Музыки для Discord находится в разработке...")
+                print("Запускаю Discord RPC...")
+                os.system("cls")
+                DiscordRPC().run_loop(websocket_url)
                 break
             elif key == b'3':
                 print("\nВ случае, если у вас возникли какие-то вопросы, не стесняйтесь писать мне на почту: corpse@corpse.pw")
