@@ -2,6 +2,7 @@
     "version": "v1.0.1",
     "yandex_music_port": 777,
     "flask_port": 999,
+    "discord_rpc_client_id": "1227850760318881822",
     "target_app": "music-application://desktop/",
     "default_yandex_music_path": "C://Users//{username}//AppData//Roaming//Microsoft//Windows//Start Menu//Programs//Яндекс Музыка.lnk",
     "user_yandex_music_path": null,
