@@ -30,7 +30,8 @@ class YandexMusicWS:
                 authors: [],
                 thumbnail: null,
                 time: { current: null, total: null },
-                status: null
+                status: null,
+                track_url: null
             };
             const playerBar = [...document.querySelectorAll('*')].find(e =>
                 e.classList && [...e.classList].some(cls => cls.includes('PlayerBar'))
@@ -98,6 +99,12 @@ class YandexMusicWS:
                 } else if (useEl && useEl.getAttribute('xlink:href') === '/icons/sprite.svg#pause_filled_l') {
                     result.status = 'playing';
                 }
+
+            const metaTrackUrlEl = [...playerBar.querySelectorAll('*')].find(e =>
+                e.classList && [...e.classList].some(cls => cls.includes('Meta_albumLink'))
+            );
+            if (metaTrackUrlEl) result.track_url = metaTrackUrlEl.href.trim();
+
             }
 
             return result;
@@ -150,7 +157,8 @@ class YandexMusicInfo:
             "authors": [],
             "thumbnail": None,
             "time": {"current": None, "total": None},
-            "status": None
+            "status": None,
+            "track_url": None
         }
         self.message_id = 0
         self.ws_client = None
