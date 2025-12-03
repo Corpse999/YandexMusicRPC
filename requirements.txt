@@ -3,5 +3,5 @@ pywin32
 keyboard
 requests
 packaging
-discord-rpc
 websocket-client
+git+https://github.com/qwertyquerty/pypresence.git
