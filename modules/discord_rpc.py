@@ -104,14 +104,8 @@ class DiscordRPC:
 
             # Если трек поменялся, то скидываем время и ставим метку, что надо поменять RPC
             if title != self.prev_track_title:
-                # Улучшенный костыль. Ждем, пока время не станет числом, потом уже меняем RPC
-                while True:
-                    if isinstance(current_time, int) and isinstance(total_time, int):
-                        break
-                    time.sleep(0.05)
                 self.prev_track_title = title
                 self.change_rpc = True
-                cycles_amount = 0 # Сбрасываем счетчик при смене трека
                 self.time_started = int(time.time() - current_time)
 
             # Сверяем текущее время в RPC и реальное время RPC. Если разница > 2 сек, то меняем время
@@ -121,6 +115,11 @@ class DiscordRPC:
                 self.change_rpc = True
 
             if self.change_rpc:
+                # Улучшенный костыль. Ждем, пока время не станет числом, потом уже меняем RPC
+                while True:
+                    if isinstance(current_time, int) and isinstance(total_time, int):
+                        break
+                    time.sleep(0.05)
                 self.rpc.update(**self.custom_rpc)
                 self.change_rpc = False
             
