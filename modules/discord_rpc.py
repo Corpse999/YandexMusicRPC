@@ -14,7 +14,6 @@ class DiscordRPC:
         self.time_started = None
         self.prev_track_title = None
         self.change_rpc = False
-        self.cycles_to_change = 50 # каждые 10 секунд (50 * 0.02 сек) форсим обновление RPC (костыль для фикса фриза времени при быстром листании)
 
         self.random_statuses = [
             "В поисках вдохновения...",
@@ -93,6 +92,7 @@ class DiscordRPC:
             title = track.get("title")
             authors = track.get("authors")
             current_time = self.parse_time(track.get("time", {}).get("current"))
+            total_time = self.parse_time(track.get("time", {}).get("total"))
 
             # Ставим дефолтный RPC, если не удается получить авторов и название
             if (title is None and not authors) or current_time is None:
@@ -104,6 +104,11 @@ class DiscordRPC:
 
             # Если трек поменялся, то скидываем время и ставим метку, что надо поменять RPC
             if title != self.prev_track_title:
+                # Улучшенный костыль. Ждем, пока время не станет числом, потом уже меняем RPC
+                while True:
+                    if isinstance(current_time, int) and isinstance(total_time, int):
+                        break
+                    time.sleep(0.05)
                 self.prev_track_title = title
                 self.change_rpc = True
                 cycles_amount = 0 # Сбрасываем счетчик при смене трека
@@ -114,18 +119,11 @@ class DiscordRPC:
             if abs(discord_time - current_time) > 2:
                 self.time_started = int(time.time() - current_time)
                 self.change_rpc = True
-            
-            if cycles_amount == self.cycles_to_change:
-                self.time_started = int(time.time() - current_time)
-                cycles_amount = 0
-                self.change_rpc = True
 
             if self.change_rpc:
                 self.rpc.update(**self.custom_rpc)
                 self.change_rpc = False
             
-            # Прибавляем единичку к циклам для работы костыля
-            cycles_amount += 1
             
             # Спим перед новым циклом
             time.sleep(0.2)
